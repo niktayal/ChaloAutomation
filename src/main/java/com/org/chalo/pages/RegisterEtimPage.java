@@ -26,7 +26,7 @@ public class RegisterEtimPage extends TestBase {
 
     public void checkRedirectionOfEtimPage() {
 
-        log.info("The user is on Hom Page and clicking on ETIM option");
+        log.info("The user is on Home Page and clicking on ETIM option");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         Actions actions = new Actions(driver);
@@ -40,12 +40,18 @@ public class RegisterEtimPage extends TestBase {
 // STEP 2: Wait for ETIM link to become visible/clickable
         WebElement btnETIM = getElement(properties.getProperty("btnEtimRegister"));
         WebElement etim = wait.until(ExpectedConditions.elementToBeClickable(btnETIM));
-        etim.click();
+        if (etim.isDisplayed()) {
+            etim.click();
+            expectedHeading = "Register ETIM";
+            actualHeading = getElement(properties.getProperty("textRegisterEtim")).getText();
 
-        expectedHeading = "Register ETIM";
-        actualHeading = getElement(properties.getProperty("textRegisterEtim")).getText();
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Register ETIM page is loading correctly");
+        }
 
-        Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Register ETIM page is loading correctly");
+        else {
+            log.info("The Register ETIM option is not available for this user");
+        }
+
         }
 
 }

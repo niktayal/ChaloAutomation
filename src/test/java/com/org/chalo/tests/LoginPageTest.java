@@ -32,6 +32,8 @@ public class LoginPageTest extends TestBase {
 
         loginPage.enterCity(properties.getProperty("city"));
 
+        //loginPage.enterAgency(properties.getProperty("agency"), properties.getProperty("city"));
+
         loginPage.enterDepot(properties.getProperty("depot"));
 
         Thread.sleep(5000);
