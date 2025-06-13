@@ -17,7 +17,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.annotations.Optional;
-
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
