@@ -40,7 +40,7 @@ public class WaybillSignOffPage extends TestBase {
             expectedHeading = "Waybill SignOff";
             actualHeading = getElement(properties.getProperty("textWaybillSignOff")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Waybill Sign Off page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Waybill Sign Off page is not loading");
         }
 
         else {

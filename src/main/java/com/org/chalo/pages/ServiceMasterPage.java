@@ -41,7 +41,7 @@ public class ServiceMasterPage extends TestBase {
             expectedHeading = "Service Master";
             actualHeading = getElement(properties.getProperty("textServiceMaster")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Service Master page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Service Master page is not loading");
         }
 
         else {

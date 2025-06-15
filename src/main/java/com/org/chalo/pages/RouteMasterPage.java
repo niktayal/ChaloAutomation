@@ -40,7 +40,7 @@ public class RouteMasterPage extends TestBase {
             expectedHeading = "Route Master";
             actualHeading = getElement(properties.getProperty("textRouteMaster")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Route Master page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Route Master page is not loading");
         }
 
         else {

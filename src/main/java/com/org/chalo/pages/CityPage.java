@@ -19,11 +19,13 @@ public class CityPage extends TestBase {
         log = LogManager.getLogger(CityPage.class);
     }
 
-    public void checkRedirectionOfCityPage() {
+    public void checkRedirectionOfCityPage() throws InterruptedException {
 
         log.info("The user is on Home Page and clicking on City Page option");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Thread.sleep(5000);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(getElement(properties.getProperty("btnCityManagement"))));
         Actions actions = new Actions(driver);
 
         WebElement btnCityManagement = getElement(properties.getProperty("btnCityManagement"));
@@ -34,13 +36,14 @@ public class CityPage extends TestBase {
 
 // STEP 2: Wait for City link to become visible/clickable
         WebElement btnCity = getElement(properties.getProperty("btnCity"));
+        btnCity.click();
         WebElement city = wait.until(ExpectedConditions.elementToBeClickable(btnCity));
         if (city.isDisplayed()) {
             city.click();
             expectedHeading = "City";
             actualHeading = getElement(properties.getProperty("textCity")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The City page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The City page is not loading");
         }
 
         else {

@@ -40,7 +40,7 @@ public class DepotPage extends TestBase {
             expectedHeading = "Depot";
             actualHeading = getElement(properties.getProperty("textDepot")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Depot page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Depot page is not loading");
         }
 
         else {

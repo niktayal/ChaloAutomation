@@ -41,7 +41,7 @@ public class PrepaidCardMasterPage extends TestBase {
             expectedHeading = "Prepaid Card Master";
             actualHeading = getElement(properties.getProperty("textPrepaidCardMaster")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Prepaid Card Master page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Prepaid Card Master page is not loading");
         }
 
         else {

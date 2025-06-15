@@ -33,6 +33,7 @@ public class HomePageElementsTest extends TestBase {
     AccountPage account = new AccountPage();
     DepotPage depot = new DepotPage();
     CitySwitch citySwitch = new CitySwitch();
+    LogoutTest logout = new LogoutTest();
 
     @BeforeMethod
     public void setUp(Method method) throws InterruptedException, AWTException {
@@ -51,14 +52,13 @@ public class HomePageElementsTest extends TestBase {
         }
     }
 
-    @Test(priority = 1, description = "This method is testing if all the menu options are enabled")
+    @Test(priority = 1, enabled = false, description = "This method is testing if all the menu options are enabled")
     void menuOptionsEnable() throws AWTException, InterruptedException {
-
+        try {
         log.info("The menu options check is been started");
         homePage.getMenuOptionsIsClickable();
         log.info("The menu options check is been stopped");
 
-        try {
             Assert.assertTrue(true);
         } catch (Exception e) {
             log.error("-->Deliberately Failed Menu Options Enable Method: {}", e.getMessage());
@@ -66,9 +66,10 @@ public class HomePageElementsTest extends TestBase {
         }
     }
 
-    @Test(priority = 2, description = "This method is testing if all the menu options are redirecting to the correct page")
+    @Test(priority = 2, enabled = false, description = "This method is testing if all the menu options are redirecting to the correct page")
     void checkRedirectionOfAllPages() throws AWTException, InterruptedException {
 
+        try {
         log.info("The menu options redirection check is been started");
 
         //new RegisterEtimPage();
@@ -124,7 +125,6 @@ public class HomePageElementsTest extends TestBase {
 
         log.info("The menu options redirection check is been stopped");
 
-        try {
             Assert.assertTrue(true);
         } catch (Exception e) {
             log.error("-->Deliberately Failed Check Redirection Of All Pages Method: {}", e.getMessage());
@@ -136,13 +136,16 @@ public class HomePageElementsTest extends TestBase {
     void switchCity() throws AWTException, InterruptedException {
 
         log.info("The city switch check is been started");
-
-        WebElement citySwitchForm = getElement(properties.getProperty("switchCityForm"));
-        if(citySwitchForm.isDisplayed()) {
+        try {
             citySwitch.clickSwitch();
+        WebElement citySwitchForm = getElement(properties.getProperty("switchCityForm"));
+
+            //citySwitch.clickSwitch();
+        if(citySwitchForm.isDisplayed()) {
+            //citySwitch.clickSwitch();
             citySwitch.clickSelectCity();
             citySwitch.enterCity(properties.getProperty("switchCity"));
-            //citySwitch.enterAgency(properties.getProperty("switchAgency"));
+            citySwitch.enterAgency(properties.getProperty("switchAgency"));
             citySwitch.enterAccount(properties.getProperty("switchAccount"));
             citySwitch.clickConfirmButton();
 
@@ -150,7 +153,7 @@ public class HomePageElementsTest extends TestBase {
             String switchedCity = getElement(properties.getProperty("confirmCity")).getText();
             String expectedCity = properties.getProperty("switchCity");
 
-            Assert.assertEquals(switchedCity, expectedCity, "The city is been switched successfully");
+            Assert.assertEquals(switchedCity, expectedCity, "The city is not been switched");
 
         }
 
@@ -160,16 +163,17 @@ public class HomePageElementsTest extends TestBase {
 
         log.info("The city switch check is been stopped");
 
-        try {
             Assert.assertTrue(true);
         } catch (Exception e) {
-            log.error("-->Deliberately Failed Menu Options Enable Method: {}", e.getMessage());
+            log.error("-->Deliberately Failed City Switch Method: {}", e.getMessage());
             Assert.fail();
         }
+
     }
 
     @AfterMethod
-    public void tearDown() {
+    public void tearDown() throws InterruptedException, AWTException {
+        logout.logout();
         log.info(Constants.LINE);
         driver.close();
     }

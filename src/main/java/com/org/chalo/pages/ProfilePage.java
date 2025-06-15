@@ -41,7 +41,7 @@ public class ProfilePage extends TestBase {
             expectedHeading = "Profile";
             actualHeading = getElement(properties.getProperty("txtProfile")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Profile page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Profile page is not loading");
         }
 
         else {

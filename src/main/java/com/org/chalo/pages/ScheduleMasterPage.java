@@ -41,7 +41,7 @@ public class ScheduleMasterPage extends TestBase {
             expectedHeading = "Schedule Master";
             actualHeading = getElement(properties.getProperty("textScheduleMaster")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Schedule Master page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Schedule Master page is not loading");
         }
 
         else {

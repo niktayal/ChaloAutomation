@@ -42,7 +42,7 @@ public class CrewMasterPage extends TestBase {
             expectedHeading = "Crew Master";
             actualHeading = getElement(properties.getProperty("textCrewMaster")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Crew Master page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Crew Master page is not loading");
         }
 
         else {

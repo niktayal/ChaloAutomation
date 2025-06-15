@@ -41,7 +41,7 @@ public class WaybillSummaryPage extends TestBase {
             expectedHeading = "Waybill Summary";
             actualHeading = getElement(properties.getProperty("textWaybillSummary")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Waybill Summary page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Waybill Summary page is not loading");
         }
 
         else {

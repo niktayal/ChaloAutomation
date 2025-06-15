@@ -40,7 +40,7 @@ public class SpotTicketReportPage extends TestBase {
             expectedHeading = "Spot Ticket Sales";
             actualHeading = getElement(properties.getProperty("textSpotTicketReport")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Spot Ticket Report page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Spot Ticket Report page is not loading");
         }
 
         else {

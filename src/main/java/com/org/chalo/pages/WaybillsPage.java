@@ -40,7 +40,7 @@ public class WaybillsPage extends TestBase {
             expectedHeading = "Waybills";
             actualHeading = getElement(properties.getProperty("textWaybills")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Waybills page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Waybills page is not loading");
         }
 
         else {

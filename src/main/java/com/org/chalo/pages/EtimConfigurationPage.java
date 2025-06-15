@@ -41,7 +41,7 @@ public class EtimConfigurationPage extends TestBase {
             expectedHeading = "ETIM Configuration";
             actualHeading = getElement(properties.getProperty("textEtimConfig")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The ETIM Configuration page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The ETIM Configuration page is not loading");
         }
 
         else {

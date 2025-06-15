@@ -41,7 +41,7 @@ public class AccountPage extends TestBase {
             expectedHeading = "Account";
             actualHeading = getElement(properties.getProperty("textAccount")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Account page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Account page is not loading");
         }
 
         else {

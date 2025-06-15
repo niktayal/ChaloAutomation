@@ -41,7 +41,7 @@ public class CollectionPage extends TestBase {
             expectedHeading = "Collection";
             actualHeading = getElement(properties.getProperty("textCollection")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Collection page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Collection page is not loading");
         }
 
         else {

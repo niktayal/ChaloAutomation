@@ -41,7 +41,7 @@ public class VehicleMasterPage extends TestBase {
             expectedHeading = "Vehicle Master";
             actualHeading = getElement(properties.getProperty("textVehicleMaster")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Vehicle Master page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Vehicle Master page is not loading");
         }
 
         else {

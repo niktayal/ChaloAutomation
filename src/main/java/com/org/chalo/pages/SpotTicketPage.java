@@ -41,7 +41,7 @@ public class SpotTicketPage extends TestBase {
             expectedHeading = "Spot Ticket Waybills";
             actualHeading = getElement(properties.getProperty("textSpotTicket")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Spot Ticket page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Spot Ticket page is not loading");
         }
 
         else {

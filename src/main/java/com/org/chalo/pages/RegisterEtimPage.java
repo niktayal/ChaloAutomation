@@ -45,7 +45,7 @@ public class RegisterEtimPage extends TestBase {
             expectedHeading = "Register ETIM";
             actualHeading = getElement(properties.getProperty("textRegisterEtim")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Register ETIM page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Register ETIM page is not loading");
         }
 
         else {

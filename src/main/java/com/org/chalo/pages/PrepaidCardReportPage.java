@@ -41,7 +41,7 @@ public class PrepaidCardReportPage extends TestBase {
             expectedHeading = "Card Issue Report";
             actualHeading = getElement(properties.getProperty("textPrepaidCardReport")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Prepaid Card Report page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Prepaid Card Report page is not loading");
         }
 
         else {

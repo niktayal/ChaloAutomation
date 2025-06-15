@@ -41,7 +41,7 @@ public class OperatorPage extends TestBase {
             expectedHeading = "Operator";
             actualHeading = getElement(properties.getProperty("textOperator")).getText();
 
-            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Operator page is loading correctly");
+            Assert.assertEquals(expectedHeading.toLowerCase(), actualHeading.toLowerCase(), "The Operator page is not loading");
         }
 
         else {

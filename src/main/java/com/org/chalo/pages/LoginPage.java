@@ -6,11 +6,16 @@ import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.time.Duration;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
 
 public class LoginPage extends TestBase {
 
@@ -40,28 +45,42 @@ public class LoginPage extends TestBase {
         getElement(properties.getProperty("btnSelectCity")).click();
     }
 
-    public void enterCity(String city) throws AWTException {
+    public void enterCity(String city) throws AWTException, InterruptedException {
         getElement(properties.getProperty("btnSelectCity")).clear();
         getElement(properties.getProperty("btnSelectCity")).sendKeys(city + Keys.ENTER);
+        Thread.sleep(1000);
     }
 
     public void enterAgency(String agency, String city) throws AWTException {
+        try {
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0)); // Disable implicit wait temporarily
 
-        WebElement fieldAgencyLogin = getElement(properties.getProperty("btnSelectAgencyField"));
+            By agencyFieldLocator = By.xpath(properties.getProperty("btnSelectAgencyField"));
+            List<WebElement> elements = driver.findElements(agencyFieldLocator);
 
-        //if(city.equalsIgnoreCase("Mumbai")) {
-        if(fieldAgencyLogin.isDisplayed()) {
-            getElement(properties.getProperty("btnSelectAgencyField")).clear();
-            getElement(properties.getProperty("btnSelectAgencyField")).sendKeys(agency + Keys.ENTER);
-        }
+            if (!elements.isEmpty() && elements.get(0).isDisplayed()) {
+                WebElement fieldAgencyLogin = elements.get(0);
+                fieldAgencyLogin.clear();
+                fieldAgencyLogin.sendKeys(agency + Keys.ENTER);
+            } else {
+                System.out.println("Agency field not present or not visible for city: " + city);
+            }
 
-        else {
-            //log.info("The Agency field is not required for this city");
+        } catch (Exception e) {
+            System.out.println("Exception in enterAgency: " + e.getMessage());
+        } finally {
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // Reset your global wait
         }
     }
 
-    public void enterDepot(String depot) throws AWTException {
+
+    public void enterDepot(String depot) throws AWTException, InterruptedException {
         getElement(properties.getProperty("btnSelectDepo")).clear();
         getElement(properties.getProperty("btnSelectDepo")).sendKeys(depot+ Keys.ENTER);
+
+    }
+
+    public boolean isLoggedIn() throws InterruptedException {
+        return Objects.requireNonNull(driver.getCurrentUrl()).contains("home");
     }
 }
